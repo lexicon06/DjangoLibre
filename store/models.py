@@ -25,6 +25,9 @@ class Product(models.Model):
     sku = models.CharField(max_length=255, default='')
     paused = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f"{self.name} - {self.price}"
+
 class Doubt(models.Model):
     customer = models.ForeignKey('store.Customer', on_delete=models.CASCADE)
     product = models.ForeignKey('store.Product', on_delete=models.CASCADE)
